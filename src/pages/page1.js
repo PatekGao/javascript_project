@@ -1,11 +1,34 @@
 import React, {Component} from 'react';
+import Sider from "antd/es/layout/Sider";
+import {Layout, Menu} from "antd";
+import {Content} from "antd/es/layout/layout";
 
 class Page1 extends Component {
   render() {
     return (
-      <div>
-        balabala
-      </div>
+      <Layout>
+        <Sider className="site-layout-background" width={200}>
+          <Menu mode="inline" style={{ height: '100%' }}>
+            hello
+          </Menu>
+        </Sider>
+        <Content
+          style={{
+            padding: '0 24px',
+            minHeight: 280,
+          }}
+        >
+          <div
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              textAlign: 'center',
+            }}
+          >
+            HELLO
+          </div>
+        </Content>
+      </Layout>
     );
   }
 }
