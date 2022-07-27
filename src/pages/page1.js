@@ -1,9 +1,20 @@
 import React, {Component} from 'react';
 import Sider from "antd/es/layout/Sider";
-import {Layout, Menu} from "antd";
+import {Descriptions, Layout, Menu} from "antd";
 import {Content} from "antd/es/layout/layout";
+import {connect} from "umi";
+import axios from "axios";
 
+@connect(({ data }) => (data))
 class Page1 extends Component {
+  dispatch = this.props.dispatch
+
+  componentDidMount() {
+    this.dispatch({
+      type: 'data/getData'
+    })
+  }
+
   render() {
     return (
       <Layout>
@@ -15,7 +26,7 @@ class Page1 extends Component {
         <Content
           style={{
             padding: '0 24px',
-            minHeight: 280,
+            minHeight: "auto",
           }}
         >
           <div
@@ -26,6 +37,9 @@ class Page1 extends Component {
             }}
           >
             HELLO
+
+            <p></p>
+            <a>{this.props.Xu}</a>
           </div>
         </Content>
       </Layout>

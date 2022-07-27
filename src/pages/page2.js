@@ -2,8 +2,18 @@ import React, {Component} from 'react';
 import {Layout, Menu} from "antd";
 import Sider from "antd/es/layout/Sider";
 import {Content} from "antd/es/layout/layout";
+import {connect} from "umi";
 
+@connect(({ data }) => (data))
 class Page2 extends Component {
+  dispatch = this.props.dispatch
+
+  componentDidMount() {
+    this.dispatch({
+      type: 'data/getData'
+    })
+  }
+
   render() {
     return (
       <Layout>
@@ -15,7 +25,7 @@ class Page2 extends Component {
         <Content
           style={{
             padding: '0 24px',
-            minHeight: 280,
+            minHeight: "auto",
           }}
         >
           <div
@@ -25,7 +35,9 @@ class Page2 extends Component {
               textAlign: 'center',
             }}
           >
-            JI
+            HELLO
+            <p></p>
+            <a>{this.props.Lin}</a>
           </div>
         </Content>
       </Layout>

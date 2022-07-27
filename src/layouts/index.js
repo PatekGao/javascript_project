@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Layout, Menu } from "antd";
+import {Layout, Menu, PageHeader} from "antd";
 import { connect, Link } from "umi";
 const { Header, Content, Footer } = Layout;
 
@@ -15,6 +15,9 @@ class Index extends Component {
 
   render() {
     return (
+      <PageHeader
+        onBack={() => window.history.back()}
+      >
       <Layout>
         <Header className="header">
           <div className="logo" />
@@ -47,7 +50,7 @@ class Index extends Component {
             <Content
               style={{
                 padding: '0 24px',
-                minHeight: 280,
+                minHeight: "auto",
               }}
             >
               <div
@@ -57,6 +60,7 @@ class Index extends Component {
                   textAlign: 'center',
                 }}
               >
+                WELCOME TO THE BENCHMARK OF SELF SIGHT.
                 {this.props.children}
               </div>
             </Content>
@@ -67,8 +71,10 @@ class Index extends Component {
             textAlign: 'center',
           }}
         >
+           website of benchmark ©2022 Created by Patek Gao
         </Footer>
       </Layout>
+      </PageHeader>
     );
   }
 }
