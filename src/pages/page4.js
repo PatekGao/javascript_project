@@ -35,7 +35,6 @@ class Page4 extends Component {
               textAlign: 'center',
             }}
           >
-            HELLO
             <p></p>
             <a>{this.props.Kong}</a>
           </div>

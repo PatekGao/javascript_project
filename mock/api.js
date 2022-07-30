@@ -1,9 +1,9 @@
 export default {
   '/api/getData': {
-    Xu: 10,
-    Kong: 20,
-    Lin: 30,
-    Tang: 40,
+    Xu: 'For Xu only.',
+    Kong: 'For Kong only.',
+    Lin: 'For Lin only.',
+    Tang: 'For Tang only.',
   },
 
 }
