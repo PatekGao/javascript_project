@@ -2,9 +2,9 @@ import axios from "axios";
 
 export default {
   namespace: 'data',
-  state: { avg: 0, median: 0 },
+  state: {avg: 0, median: 0},
   reducers: {
-    'edit' (state, { payload }) {
+    'edit'(state, {payload}) {
       let s = {...state}
       if (payload.Xu) {
         s.Xu = payload.Xu
@@ -22,7 +22,7 @@ export default {
     },
   },
   effects: {
-    *getData ({ payload }, { put }) {
+    * getData({payload}, {put}) {
       let data = yield axios.get('/api/getData')
       yield put({type: 'edit', payload: data.data});
     },
