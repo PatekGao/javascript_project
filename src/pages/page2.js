@@ -57,7 +57,6 @@ class Page2 extends Component {
               textAlign: 'center',
             }}
           >
-            HELLO
             <p></p>
             <a>{this.props.Lin}</a>
           </div>
