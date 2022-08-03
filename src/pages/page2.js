@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Layout, Menu} from "antd";
+import {Layout, Menu, PageHeader} from "antd";
 import Sider from "antd/es/layout/Sider";
 import {Content} from "antd/es/layout/layout";
 import {connect, Link} from "umi";
@@ -38,30 +38,33 @@ class Page2 extends Component {
 
   render() {
     return (
-      <Layout>
-        <Sider className="site-layout-background" width={200}>
-          <Menu mode="inline" style={{height: '100%'}}>
-            {this.getMenuNodes(menuList)}
-          </Menu>
-        </Sider>
-        <Content
-          style={{
-            padding: '0 24px',
-            minHeight: "auto",
-          }}
-        >
-          <div
-            className="site-layout-background"
+      <PageHeader
+        onBack={() => window.history.back()}
+      >
+        <Layout>
+          <Sider className="site-layout-background" width={200}>
+            <Menu mode="inline" style={{height: '100%'}}>
+              {this.getMenuNodes(menuList)}
+            </Menu>
+          </Sider>
+          <Content
             style={{
-              padding: 24,
-              textAlign: 'center',
+              padding: '0 24px',
+              minHeight: "auto",
             }}
           >
-            <p></p>
-            <a>{this.props.Lin}</a>
-          </div>
-        </Content>
-      </Layout>
+            <div
+              className="site-layout-background"
+              style={{
+                padding: 24,
+                textAlign: 'center',
+              }}
+            >
+              <a>{this.props.Lin}</a>
+            </div>
+          </Content>
+        </Layout>
+      </PageHeader>
     );
   }
 }

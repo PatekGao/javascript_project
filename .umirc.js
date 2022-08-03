@@ -15,7 +15,6 @@ export default defineConfig({
       ]
     },
   ],
-
   fastRefresh: {},
   antd: {},
   dva: {},
