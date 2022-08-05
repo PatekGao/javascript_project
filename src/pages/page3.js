@@ -60,7 +60,6 @@ class Page3 extends Component {
                 textAlign: 'center',
               }}
             >
-              <p></p>
               <a>{this.props.Tang}</a>
             </div>
           </Content>

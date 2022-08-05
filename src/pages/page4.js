@@ -60,7 +60,6 @@ class Page4 extends Component {
                 textAlign: 'center',
               }}
             >
-              <p></p>
               <a>{this.props.Kong}</a>
             </div>
           </Content>
