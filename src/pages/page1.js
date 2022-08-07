@@ -6,12 +6,16 @@ import {connect, Link} from "umi";
 import menuList from "../models/menuConfig_xu";
 import SubMenu from "antd/es/menu/SubMenu";
 
+const {menu_xu} = require('../models/menu_xu.json')
+
+const menu_Xu = JSON.stringify(menu_xu);
+
 @connect(({data}) => (data))
 class Page1 extends Component {
   dispatch = this.props.dispatch
 
-  getMenuNodes = (menuList) => {
-    return menuList.map(item => {
+  getMenuNodes = (menu_Xu) => {
+    return menu_Xu.map(item => {
       if (!item.children) {
         return (
           <Menu.Item key={item.key} icon={item.icon}>
@@ -44,7 +48,7 @@ class Page1 extends Component {
         <Layout>
           <Sider className="site-layout-background" width={200}>
             <Menu mode="inline" style={{height: '100%'}}>
-              {this.getMenuNodes(menuList)}
+              {this.getMenuNodes(menu_Xu)}
             </Menu>
           </Sider>
           <Content
