@@ -3,14 +3,14 @@ import React from "react";
 const menuList = [
   {
     title: '1st_kong',
-    key: 'page4/p1',
-    to: 'page4/p1',
-  },
-  {
-    title: '2nd_kong',
-    key: '/page4/p2',
-    to: '/page4/p2',
+    key: '/page4/p1',
+    to: '/page4/p1',
     children: [
+      {
+        title: '2nd_kong',
+        key: '/page4/p2',
+        to: '/page4/p2',
+      },
       {
         title: '3rd_kong',
         key: '/page4/p3',

@@ -1,8 +1,9 @@
 import {Breadcrumb, Button, Descriptions, Layout, Menu, PageHeader} from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import { Link, connect } from 'umi'
+import {UserOutlined} from '@ant-design/icons';
+import {Link, connect} from 'umi'
 import React, {Component} from 'react';
-const { Header, Content, Footer, Sider } = Layout;
+
+const {Header, Content, Footer, Sider} = Layout;
 
 const checkTime = function (i) {
   if (i < 10) {
@@ -27,12 +28,12 @@ let showtime = function () {
   return year + "年" + month + "月" + date + "日" + week[day] + " " + h + ":" + m + ":" + s;
 }
 
-function refresh(){
+function refresh() {
   location.reload();
 }
 
 
-@connect(({ data }) => (data))
+@connect(({data}) => (data))
 class Index extends Component {
   dispatch = this.props.dispatch
 

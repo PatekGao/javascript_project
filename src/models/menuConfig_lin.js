@@ -5,12 +5,12 @@ const menuList = [
     title: '1st_lin',
     key: '/page2/p1',
     to: '/page2/p1',
-  },
-  {
-    title: '2nd_lin',
-    key: '/page2/p2',
-    to: '/page2/p2',
     children: [
+      {
+        title: '2nd_lin',
+        key: '/page2/p2',
+        to: '/page2/p2',
+      },
       {
         title: '3rd_lin',
         key: '/page2/p3',
