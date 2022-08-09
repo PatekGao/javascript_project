@@ -1,60 +1,52 @@
-import React, {Component} from 'react';
-import Sider from "antd/es/layout/Sider";
-import {Layout, Menu, PageHeader} from "antd";
-import {Content} from "antd/es/layout/layout";
-import {connect, Link} from "umi";
-import menuList from "../models/menuConfig_xu";
-import SubMenu from "antd/es/menu/SubMenu";
+import React, { Component } from 'react';
+import { Layout, Menu, PageHeader } from 'antd';
+import Sider from 'antd/es/layout/Sider';
+import { Content } from 'antd/es/layout/layout';
+import { connect, Link } from 'umi';
+import SubMenu from 'antd/es/menu/SubMenu';
 
-const {menu_xu} = require('../models/menu_xu.json')
-
-const menu_Xu = JSON.stringify(menu_xu);
-
-@connect(({data}) => (data))
+@connect(({ data }) => data)
 class Page1 extends Component {
-  dispatch = this.props.dispatch
+  dispatch = this.props.dispatch;
 
-  getMenuNodes = (menu_Xu) => {
-    return menu_Xu.map(item => {
+  getMenuNodes = (menuList) => {
+    return menuList.map((item) => {
       if (!item.children) {
         return (
           <Menu.Item key={item.key} icon={item.icon}>
-            <Link to={item.key}>
-              {item.title}
-            </Link>
+            <Link to={item.key}>{item.title}</Link>
           </Menu.Item>
-        )
+        );
       } else {
         return (
           <SubMenu key={item.key} icon={item.icon} title={item.title}>
             {this.getMenuNodes(item.children)}
           </SubMenu>
-        )
+        );
       }
-    })
-  }
+    });
+  };
 
   componentDidMount() {
     this.dispatch({
-      type: 'data/getData'
-    })
+      type: 'data/getData',
+    });
   }
 
   render() {
+    let menuList = this.props.menu_xu;
     return (
-      <PageHeader
-        onBack={() => window.history.back()}
-      >
+      <PageHeader onBack={() => window.history.back()}>
         <Layout>
           <Sider className="site-layout-background" width={200}>
-            <Menu mode="inline" style={{height: '100%'}}>
-              {this.getMenuNodes(menu_Xu)}
+            <Menu mode="inline" style={{ height: '100%' }}>
+              {this.getMenuNodes(menuList)}
             </Menu>
           </Sider>
           <Content
             style={{
               padding: '0 24px',
-              minHeight: "auto",
+              minHeight: 'auto',
             }}
           >
             <div
@@ -74,8 +66,3 @@ class Page1 extends Component {
 }
 
 export default Page1;
-
-
-
-
-
