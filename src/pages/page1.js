@@ -9,11 +9,15 @@ import SubMenu from 'antd/es/menu/SubMenu';
 class Page1 extends Component {
   dispatch = this.props.dispatch;
 
+  handleClick = (e) => {
+    console.log('click', e);
+  };
+
   getMenuNodes = (menuList) => {
     return menuList.map((item) => {
       if (!item.children) {
         return (
-          <Menu.Item key={item.key} icon={item.icon}>
+          <Menu.Item key={item.key} icon={item.icon} onClick={this.handleClick}>
             <Link to={item.key}>{item.title}</Link>
           </Menu.Item>
         );

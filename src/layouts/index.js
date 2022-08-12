@@ -1,39 +1,42 @@
-import React, {Component} from 'react';
-import {Layout, Menu, PageHeader} from "antd";
-import {connect, Link} from "umi";
+import React, { Component } from 'react';
+import { Layout, Menu, PageHeader } from 'antd';
+import { connect, Link } from 'umi';
 
-const {Header, Content, Footer} = Layout;
+const { Header, Content, Footer } = Layout;
 
-@connect(({data}) => (data))
+@connect(({ data }) => data)
 class Index extends Component {
-  dispatch = this.props.dispatch
+  dispatch = this.props.dispatch;
 
   componentDidMount() {
     this.dispatch({
-      type: 'data/getData'
-    })
+      type: 'data/getData',
+    });
   }
 
   render() {
     return (
-      <PageHeader
-        onBack={() => window.history.back()}
-      >
+      <PageHeader onBack={() => window.history.back()}>
         <Layout>
           <Header className="header">
-            <div className="logo"/>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-              <Menu.Item key='/page1'>
-                <Link to='/page1'>徐罗旻</Link>
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['1']}
+              onClick={this.handleClick}
+            >
+              <Menu.Item key="/page1">
+                <Link to="/page1">徐罗旻</Link>
               </Menu.Item>
-              <Menu.Item key='/page2'>
-                <Link to='/page2'>林硕</Link>
+              <Menu.Item key="/page2">
+                <Link to="/page2">林硕</Link>
               </Menu.Item>
-              <Menu.Item key='/page3'>
-                <Link to='/page3'>汤陈</Link>
+              <Menu.Item key="/page3">
+                <Link to="/page3">汤陈</Link>
               </Menu.Item>
-              <Menu.Item key='/page4'>
-                <Link to='/page4'>孔昊</Link>
+              <Menu.Item key="/page4">
+                <Link to="/page4">孔昊</Link>
               </Menu.Item>
             </Menu>
           </Header>
@@ -51,7 +54,7 @@ class Index extends Component {
               <Content
                 style={{
                   padding: '0 24px',
-                  minHeight: "auto",
+                  minHeight: 'auto',
                 }}
               >
                 <div
