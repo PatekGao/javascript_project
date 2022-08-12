@@ -5,12 +5,15 @@ import { Content } from 'antd/es/layout/layout';
 import { connect, Link } from 'umi';
 import SubMenu from 'antd/es/menu/SubMenu';
 
+let menuKey = [];
+
 @connect(({ data }) => data)
 class Page4 extends Component {
   dispatch = this.props.dispatch;
-
   handleClick = (e) => {
+    menuKey = e;
     console.log('click', e);
+    console.log(menuKey['key']);
   };
 
   getMenuNodes = (menuList) => {
@@ -18,7 +21,7 @@ class Page4 extends Component {
       if (!item.children) {
         return (
           <Menu.Item key={item.key} icon={item.icon} onClick={this.handleClick}>
-            <Link to={item.key}>{item.title}</Link>
+            <Link>{item.title}</Link>
           </Menu.Item>
         );
       } else {
@@ -61,6 +64,8 @@ class Page4 extends Component {
               }}
             >
               <a>{this.props.Kong}</a>
+              <p></p>
+              <a>{menuKey['key']}</a>
             </div>
           </Content>
         </Layout>
