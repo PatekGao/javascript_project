@@ -6,12 +6,15 @@ import { connect, Link } from 'umi';
 import SubMenu from 'antd/es/menu/SubMenu';
 
 let menuKey = [];
+let keyFlag;
 
 @connect(({ data }) => data)
 class Page4 extends Component {
   dispatch = this.props.dispatch;
+
   handleClick = (e) => {
     menuKey = e;
+    keyFlag = menuKey['key'].charAt(menuKey['key'].length - 1);
     console.log('click', e);
     console.log(menuKey['key']);
   };
@@ -65,7 +68,7 @@ class Page4 extends Component {
             >
               <a>{this.props.Kong}</a>
               <p></p>
-              <a>{menuKey['key']}</a>
+              <a>{keyFlag}</a>
             </div>
           </Content>
         </Layout>

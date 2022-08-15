@@ -16,8 +16,13 @@ class Index extends Component {
 
   render() {
     return (
-      <PageHeader onBack={() => window.history.back()}>
-        <Layout>
+      <PageHeader
+        onBack={() => window.history.back()}
+        style={{
+          padding: '0 0 0',
+        }}
+      >
+        <Layout style={{ height: '100vh', overflow: 'auto' }}>
           <Header className="header">
             <div className="logo" />
             <Menu
@@ -60,7 +65,7 @@ class Index extends Component {
                 <div
                   className="site-layout-background"
                   style={{
-                    padding: 24,
+                    padding: 0,
                     textAlign: 'center',
                   }}
                 >
